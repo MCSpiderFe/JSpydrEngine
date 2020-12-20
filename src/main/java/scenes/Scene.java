@@ -101,6 +101,7 @@ public class Scene {
 
     public void update(float dt) {
         this.camera.adjustProjection();
+        this.physics2D.update(dt);
 
         for (int i = 0; i < gameObjects.size(); i++) {
             GameObject go = gameObjects.get(i);

@@ -1,6 +1,7 @@
 package spydr;
 
 import editor.GameViewWindow;
+import editor.MenuBar;
 import editor.PropertiesWindow;
 import imgui.*;
 import imgui.callback.ImStrConsumer;
@@ -24,11 +25,13 @@ public class ImGuiLayer {
     private final ImGuiImplGl3 imGuiGl3 = new ImGuiImplGl3();
     private final GameViewWindow gameViewWindow;
     private PropertiesWindow inspector;
+    private MenuBar menuBar;
 
     public ImGuiLayer(long glfwWindow, PickingTexture pickingTexture) {
         this.glfwWindow = glfwWindow;
         this.gameViewWindow = new GameViewWindow();
         this.inspector = new PropertiesWindow(pickingTexture);
+        this.menuBar = new MenuBar();
     }
 
     // Initialize Dear ImGui.
@@ -195,6 +198,7 @@ public class ImGuiLayer {
         inspector.update(dt, currentScene);
         inspector.imgui();
         gameViewWindow.imgui();
+        menuBar.imgui();
         ImGui.end();
         ImGui.render();
 

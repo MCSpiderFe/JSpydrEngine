@@ -224,11 +224,14 @@ public class Window implements Observer {
         switch (event.type) {
             case GameEngineStartPlay:
                 System.out.println("Starting");
+                currentScene.save();
+                Window.changeScene(new LevelEditorSceneInitializer());
                 runtimePlaying = true;
                 break;
             case GameEngineStopPlay:
                 System.out.println("Ending");
                 runtimePlaying = false;
+                Window.changeScene(new LevelEditorSceneInitializer());
                 break;
             case SaveLevel:
                 currentScene.save();
