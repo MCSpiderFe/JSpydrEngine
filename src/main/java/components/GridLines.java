@@ -12,7 +12,7 @@ public class GridLines extends Component {
     public static int GRID_HEIGHT = 32;
 
     @Override
-    public void update(float dt) {
+    public void editorUpdate(float dt) {
         Camera camera = Window.getScene().camera();
 
         Vector2f cameraPos = camera.position;

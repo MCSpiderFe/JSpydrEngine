@@ -83,6 +83,22 @@ public class Scene {
         return result.orElse(null);
     }
 
+    public void editorUpdate(float dt) {
+        this.camera.adjustProjection();
+
+        for (int i = 0; i < gameObjects.size(); i++) {
+            GameObject go = gameObjects.get(i);
+            go.editorUpdate(dt);
+
+            if(go.isDead()) {
+                gameObjects.remove(i);
+                this.renderer.destroyGameObject(go);
+                this.physics2D.destroyGameObject(go);
+                i--;
+            }
+        }
+    }
+
     public void update(float dt) {
         this.camera.adjustProjection();
 

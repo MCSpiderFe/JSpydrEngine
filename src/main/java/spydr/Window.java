@@ -24,10 +24,11 @@ public class Window implements Observer {
     private ImGuiLayer imguiLayer;
     private Framebuffer framebuffer;
     private PickingTexture pickingTexture;
+    private boolean runtimePlaying = false;
 
     private static Window window = null;
-
     private static Scene currentScene;
+
 
     private Window() {
         this.width = 1920;
@@ -171,7 +172,11 @@ public class Window implements Observer {
             if (dt >= 0) {
                 DebugDraw.draw();
                 Renderer.bindShader(defaultShader);
-                currentScene.update(dt);
+                if(runtimePlaying) {
+                    currentScene.update(dt);
+                } else {
+                    currentScene.editorUpdate(dt);
+                }
                 currentScene.render();
             }
             this.framebuffer.unbind();
@@ -219,9 +224,11 @@ public class Window implements Observer {
         switch (event.type) {
             case GameEngineStartPlay:
                 System.out.println("Starting");
+                runtimePlaying = true;
                 break;
             case GameEngineStopPlay:
                 System.out.println("Ending");
+                runtimePlaying = false;
                 break;
             case SaveLevel:
                 currentScene.save();

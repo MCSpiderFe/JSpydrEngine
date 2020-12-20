@@ -54,6 +54,12 @@ public class GameObject {
         c.gameObject = this;
     }
 
+    public void editorUpdate(float dt) {
+        for (int i=0; i < components.size(); i++) {
+            components.get(i).editorUpdate(dt);
+        }
+    }
+
     public void update(float dt) {
         for (int i=0; i < components.size(); i++) {
             components.get(i).update(dt);
