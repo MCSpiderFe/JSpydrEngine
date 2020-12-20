@@ -84,6 +84,10 @@ public abstract class Component {
         }
     }
 
+    public void destroy() {
+
+    }
+
     public int getUid() {
         return this.uid;
     }

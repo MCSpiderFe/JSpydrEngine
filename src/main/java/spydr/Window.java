@@ -1,12 +1,15 @@
 package spydr;
 
+import observers.EventSystem;
+import observers.Observer;
+import observers.events.Event;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.opengl.GL;
 import renderer.*;
-import scenes.LevelEditorScene;
-import scenes.LevelScene;
+import scenes.LevelEditorSceneInitializer;
 import scenes.Scene;
+import scenes.SceneInitializer;
 import util.AssetPool;
 
 import static org.lwjgl.glfw.Callbacks.glfwFreeCallbacks;
@@ -14,16 +17,13 @@ import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
-public class Window {
+public class Window implements Observer {
     private int width, height;
     private String title;
     private long glfwWindow;
     private ImGuiLayer imguiLayer;
     private Framebuffer framebuffer;
     private PickingTexture pickingTexture;
-
-    public float r, g, b, a;
-    private boolean fadeToBlack = false;
 
     private static Window window = null;
 
@@ -32,26 +32,18 @@ public class Window {
     private Window() {
         this.width = 1920;
         this.height = 1080;
-        this.title = "Mario";
-        r = 1;
-        b = 1;
-        g = 1;
-        a = 1;
+        this.title = "SpydrEngine";
+
+        EventSystem.addObserver(this);
     }
 
-    public static void changeScene(int newScene) {
-        switch (newScene) {
-            case 0:
-                currentScene = new LevelEditorScene();
-                break;
-            case 1:
-                currentScene = new LevelScene();
-                break;
-            default:
-                assert false : "Unknown scene '" + newScene + "'";
-                break;
+    public static void changeScene(SceneInitializer initializer) {
+        if(currentScene != null) {
+            currentScene.destroy();
         }
 
+        getImGuiLayer().getPropertiesWindow().setActiveGameObject(null);
+        currentScene = new Scene(initializer);
         currentScene.load();
         currentScene.init();
         currentScene.start();
@@ -140,7 +132,7 @@ public class Window {
 
         glViewport(0, 0, 3840, 2160);
 
-        Window.changeScene(0);
+        Window.changeScene(new LevelEditorSceneInitializer());
     }
 
     public void loop() {
@@ -192,8 +184,6 @@ public class Window {
             dt = endTime - beginTime;
             beginTime = endTime;
         }
-
-        currentScene.saveExit();
     }
 
     public static int getWidth() {
@@ -222,5 +212,23 @@ public class Window {
 
     public static ImGuiLayer getImGuiLayer() {
         return get().imguiLayer;
+    }
+
+    @Override
+    public void onNotify(GameObject object, Event event) {
+        switch (event.type) {
+            case GameEngineStartPlay:
+                System.out.println("Starting");
+                break;
+            case GameEngineStopPlay:
+                System.out.println("Ending");
+                break;
+            case SaveLevel:
+                currentScene.save();
+                break;
+            case LoadLevel:
+                Window.changeScene(new LevelEditorSceneInitializer());
+                break;
+        }
     }
 }

@@ -1,6 +1,6 @@
-package components;
+package components.gizmos;
 
-import components.gizmos.Gizmo;
+import components.Sprite;
 import editor.PropertiesWindow;
 import spydr.MouseListener;
 

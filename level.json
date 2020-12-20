@@ -1,6 +1,6 @@
 [
   {
-    "uid": 1,
+    "uid": 0,
     "name": "Sprite_Object_Gen 7",
     "components": [
       {
@@ -59,10 +59,11 @@
         }
       }
     ],
-    "doSerialization": true
+    "doSerialization": true,
+    "isDead": false
   },
   {
-    "uid": 2,
+    "uid": 1,
     "name": "Sprite_Object_Gen 8",
     "components": [
       {
@@ -121,18 +122,19 @@
         }
       }
     ],
-    "doSerialization": true
+    "doSerialization": true,
+    "isDead": false
   },
   {
-    "uid": 3,
+    "uid": 2,
     "name": "Sprite_Object_Gen 9",
     "components": [
       {
         "type": "spydr.Transform",
         "properties": {
           "position": {
-            "x": 239.98431,
-            "y": 234.25061
+            "x": 226.04883,
+            "y": 324.42865
           },
           "scale": {
             "x": 64.0,
@@ -228,17 +230,18 @@
         }
       }
     ],
-    "doSerialization": true
+    "doSerialization": true,
+    "isDead": false
   },
   {
-    "uid": 4,
+    "uid": 3,
     "name": "Sprite_Object_Gen 10",
     "components": [
       {
         "type": "spydr.Transform",
         "properties": {
           "position": {
-            "x": 512.0,
+            "x": 511.07098,
             "y": 288.0
           },
           "scale": {
@@ -324,10 +327,11 @@
         }
       }
     ],
-    "doSerialization": true
+    "doSerialization": true,
+    "isDead": false
   },
   {
-    "uid": 5,
+    "uid": 4,
     "name": "Sprite_Object_Gen 11",
     "components": [
       {
@@ -386,10 +390,11 @@
         }
       }
     ],
-    "doSerialization": true
+    "doSerialization": true,
+    "isDead": false
   },
   {
-    "uid": 6,
+    "uid": 5,
     "name": "Sprite_Object_Gen 12",
     "components": [
       {
@@ -448,6 +453,7 @@
         }
       }
     ],
-    "doSerialization": true
+    "doSerialization": true,
+    "isDead": false
   }
 ]

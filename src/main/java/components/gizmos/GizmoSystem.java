@@ -2,7 +2,6 @@ package components.gizmos;
 
 import components.Component;
 import components.Spritesheet;
-import components.TranslateGizmo;
 import org.lwjgl.glfw.GLFW;
 import spydr.KeyListener;
 import spydr.Window;
