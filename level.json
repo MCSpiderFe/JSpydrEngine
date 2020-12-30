@@ -1,13 +1,13 @@
 [
   {
-    "uid": 22,
+    "uid": 48,
     "name": "Sprite_Object_Gen 7",
     "components": [
       {
         "type": "spydr.Transform",
         "properties": {
           "position": {
-            "x": 389.98706,
+            "x": 520.0516,
             "y": 275.1587
           },
           "scale": {
@@ -97,7 +97,7 @@
     "isDead": false
   },
   {
-    "uid": 23,
+    "uid": 49,
     "name": "Sprite_Object_Gen 56",
     "components": [
       {
@@ -159,7 +159,7 @@
         "type": "physics2d.componenets.Rigidbody2D",
         "properties": {
           "velocity": {
-            "x": 0.0,
+            "x": 11.0,
             "y": 0.0
           },
           "angularDamping": 0.8,
@@ -194,7 +194,7 @@
     "isDead": false
   },
   {
-    "uid": 24,
+    "uid": 50,
     "name": "Sprite_Object_Gen 57",
     "components": [
       {
@@ -291,7 +291,7 @@
     "isDead": false
   },
   {
-    "uid": 25,
+    "uid": 51,
     "name": "Sprite_Object_Gen 58",
     "components": [
       {
@@ -381,6 +381,103 @@
             "y": 0.0
           },
           "uid": 57
+        }
+      }
+    ],
+    "doSerialization": true,
+    "isDead": false
+  },
+  {
+    "uid": 52,
+    "name": "Sprite_Object_Gen 11",
+    "components": [
+      {
+        "type": "spydr.Transform",
+        "properties": {
+          "position": {
+            "x": 517.02356,
+            "y": 384.0
+          },
+          "scale": {
+            "x": 32.0,
+            "y": 32.0
+          },
+          "rotation": 0.0,
+          "zIndex": 0,
+          "uid": 85
+        }
+      },
+      {
+        "type": "components.SpriteRenderer",
+        "properties": {
+          "color": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0,
+            "w": 1.0
+          },
+          "sprite": {
+            "width": 16.0,
+            "height": 16.0,
+            "texture": {
+              "filepath": "assets/images/spritesheets/decorationsAndBlocks.png",
+              "width": 112,
+              "height": 192
+            },
+            "texCoords": [
+              {
+                "x": 0.2857143,
+                "y": 0.41666666
+              },
+              {
+                "x": 0.2857143,
+                "y": 0.33333334
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.33333334
+              },
+              {
+                "x": 0.14285715,
+                "y": 0.41666666
+              }
+            ]
+          },
+          "uid": 86
+        }
+      },
+      {
+        "type": "physics2d.componenets.Box2DCollider",
+        "properties": {
+          "halfSize": {
+            "x": 71.0,
+            "y": 75.0
+          },
+          "origin": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "offset": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "uid": 87
+        }
+      },
+      {
+        "type": "physics2d.componenets.Rigidbody2D",
+        "properties": {
+          "velocity": {
+            "x": 0.0,
+            "y": 0.0
+          },
+          "angularDamping": 0.8,
+          "linearDamping": 0.9,
+          "mass": 0.0,
+          "bodyType": "Dynamic",
+          "fixedRotation": false,
+          "continousCollision": true,
+          "uid": 88
         }
       }
     ],
